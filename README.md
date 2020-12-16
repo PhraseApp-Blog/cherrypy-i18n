@@ -155,7 +155,10 @@ For German internationalization, go to the following url
 
 ![Example of web page output in German](wfng-cherrypy-about-us-de.png)
 
-# Localized Routing is supported as well
+# Localized Routing
+CherryPy has support for setting aliases via expose decorator, the following URLs lead to the same webpage.
+
+    http://localhost:8080/about-us
 
     http://localhost:8080/über_uns
 
