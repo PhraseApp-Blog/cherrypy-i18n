@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<title>Food Blog</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+.w3-bar-block .w3-bar-item {padding:20px}
+</style>
+<body>
+
+<!-- Top menu -->
+<div class="w3-top">
+  <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
+    <p class="w3-center w3-padding-16">{{ menu }}</p>
+  </div>
+</div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    <div class="w3-quarter">
+      <img src="/static/images/sandwich.jpg" alt="Sandwich" style="width:100%">
+      <h3>{{ food_title_01 }}</h3>
+      <p>{{ food_description_01 }}</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="/static/images/steak.jpg" alt="Steak" style="width:100%">
+      <h3>{{ food_title_02 }}</h3>
+      <p>{{ food_description_02 }}</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="/static/images/cherries.jpg" alt="Cherries" style="width:100%">
+      <h3>{{ food_title_03 }}</h3>
+      <p>{{ food_description_03 }}</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="/static/images/wine.jpg" alt="Pasta and Wine" style="width:100%">
+      <h3>{{ food_title_04 }}</h3>
+      <p>{{ food_description_04 }}</p>
+    </div>
+  </div>
+
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center">
+    <div class="w3-quarter">
+      <img src="/static/images/popsicle.jpg" alt="Popsicle" style="width:100%">
+      <h3>{{ food_title_05 }}</h3>
+      <p>{{ food_description_05 }}</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="/static/images/salmon.jpg" alt="Salmon" style="width:100%">
+      <h3>{{ food_title_06 }}</h3>
+      <p>{{ food_description_06 }}</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="/static/images/sandwich.jpg" alt="Sandwich" style="width:100%">
+      <h3>{{ food_title_07 }}</h3>
+      <p>{{ food_description_07 }}</p>
+    </div>
+    <div class="w3-quarter">
+      <img src="/static/images/croissant.jpg" alt="Croissant" style="width:100%">
+      <h3>{{ food_title_08 }}</h3>
+      <p>{{ food_description_08 }}</p>
+    </div>
+  </div>
+
+  <div>
+    <span>{{ customer_value | number_formatting(locale) }} {{ customer | plural_formatting(customer_value, locale) }} {{ serve }}</span>
+    <span class="w3-right">{{ last_updated_text }}: {{ last_updated_value | date_formatting(locale) }}</span>
+  </div>
+
+</div>  <!-- End Page Content-->
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "food_title_01": "Sandwich Breakfast: A Real NYC Classic",
+  "food_description_01": "Slice ham, cheese, lettuce, tomatoes, pickles",
+  "food_title_02": "Megatron Steak",
+  "food_description_02": "Grilled Filet Mignon, roasted peppers, grilled asparagus, crispy onions",
+  "food_title_03": "Juicy Cherries",
+  "food_description_03": "Mixed greens, creamy herb dressing",
+  "food_title_04": "Robust Wine and Vegetable Pasta",
+  "food_description_04": "Mozzarella cheese , broccolli, red wine tossed with penne pasta",
+  "food_title_05": "Rainbow Popsicle",
+  "food_description_05": "Banana / Strawberry / Mango / Pineapple popsicle with a variety of toppings",
+  "food_title_06": "Smoky Salmon",
+  "food_description_06": "Marinated salmon, sweet tartar sauce, cucumbers",
+  "food_title_07": "Double Down Sandwich Combo",
+  "food_description_07": "Seared chicken breast, honey mayo, American cheese, lettuce, tomatoes",
+  "food_title_08": "Le French",
+  "food_description_08": "French toast, croissant with swiss cheese",
+  "menu": "Our Menu",
+  "customer": "customer",
+  "customer_plural": "customers",
+  "serve": "served",
+  "last_updated_text": "Last updated"
+}
