@@ -11,7 +11,7 @@ from babel.plural import PluralRule
 # initialization
 env = Environment(loader=FileSystemLoader('templates'))
 
-app_language = 'en_US'
+default_fallback = 'en_US'
 languages = {}
 tz = get_timezone('Asia/Singapore')
 plural_rule = PluralRule({'one': 'n in 0..1'})
@@ -27,10 +27,10 @@ for lang in language_list:
 
 
 # functions for custom filters
-def plural_formatting(key_value, input, lang):
+def plural_formatting(key_value, input, locale):
     key = ''
-    for i in languages[lang]:
-        if(key_value == languages[lang][i]):
+    for i in languages[locale]:
+        if(key_value == languages[locale][i]):
             key = i
             break
 
@@ -39,19 +39,19 @@ def plural_formatting(key_value, input, lang):
 
     plural_key = f"{key}_plural"
 
-    if(plural_rule(input) != 'one' and plural_key in languages[lang]):
+    if(plural_rule(input) != 'one' and plural_key in languages[locale]):
         key = plural_key
 
-    return languages[lang][key]
+    return languages[locale][key]
 
 
-def number_formatting(input, lang):
-    return format_number(input, locale=lang)
+def number_formatting(input, locale):
+    return format_number(input, locale=locale)
 
 
-def date_formatting(input, lang):
-    # format_datetime(datetime.datetime.now(), tzinfo=tz, format='full', locale=lang)
-    return format_date(input, format='full', locale=lang)
+def date_formatting(input, locale):
+    # format_datetime(datetime.datetime.now(), tzinfo=tz, format='full', locale=locale)
+    return format_date(input, format='full', locale=locale)
 
 
 # assigning the corresponding function to Jinja2 filters
@@ -61,18 +61,19 @@ env.filters['date_formatting'] = date_formatting
 
 
 # main class
+@cherrypy.popargs('locale')
 class FoodBlog(object):
     @cherrypy.expose
     def index(self):
         return "Hello world!"
 
     @cherrypy.expose(['über_uns', '关于我们'])  # set aliases
-    def about_us(self, lang=app_language):
-        if(lang not in languages):
-            lang = app_language
+    def about_us(self, locale=default_fallback):
+        if(locale not in languages):
+            locale = default_fallback
 
         template = env.get_template('index.html')
-        return template.render(**languages[lang], locale=lang, last_updated_value=datetime.datetime.now(), customer_value=25)
+        return template.render(**languages[locale], locale=locale, last_updated_value=datetime.datetime.now(), customer_value=25)
 
 
 if __name__ == '__main__':
